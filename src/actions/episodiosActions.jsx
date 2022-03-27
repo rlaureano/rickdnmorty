@@ -41,6 +41,17 @@ export function obtenerEpisodios( filtroBusqueda ) {
 
                 dispatch( buscarEpisodiosExito(respuesta) )
 
+            } else if ( Object.keys(respuesta).includes("id") ) {
+
+                const resultado =  {
+                    results: [respuesta],
+                    info: {
+                        pages:1
+                    }
+                }
+
+                dispatch( buscarEpisodiosExito(resultado) )
+            
             } else {
 
                 const resultado =  {
